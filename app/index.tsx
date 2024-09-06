@@ -28,36 +28,50 @@ const Index = () => {
                     onPress={() => setcounter(0)}
                 />
             </View>
-            <View>
-                <TouchableOpacity style={styles.btnTouchable}>
-                    <Text style={styles.btnTouchableText}>
+            
+            <View style={styles.rowContainer}>
+            <View style={{flex:2}}>
+            <TouchableOpacity style={styles.btnTouchable}>
+                    <Text style={styles.btnTouchableText}
+                    onPress={() => setcounter(counter+1)}
+                    >
                         Incrementar
                     </Text>
                 </TouchableOpacity>
+                </View>
+                <View style={{flex:2}}>
                 <TouchableOpacity style={styles.btnTouchable}>
-                    <Text style={styles.btnTouchableText}>
+                    <Text style={styles.btnTouchableText}
+                    onPress={() => setcounter(counter-1)}>
                         Decrementar
                     </Text>
                 </TouchableOpacity>
+                </View>
+                <View style={{flex:2}}>
                 <TouchableOpacity style={styles.btnTouchable}>
-                    <Text style={styles.btnTouchableText}>
+                    <Text style={styles.btnTouchableText}
+                    onPress={() => setcounter(0)}>
                         Reinicar
                     </Text>
                 </TouchableOpacity>
+                </View>
             </View>
-            <View>
-                <Pressable style={styles.btnTouchable}>
-                    <Text style={styles.btnTouchableText}>
+            <View style={styles.rowContainerReversible}>
+                <Pressable style={[styles.btnPressable, {flex:1}]}>
+                    <Text style={styles.btnTouchableText}
+                    onPress={() => setcounter(counter+1)}>
                         Incremetar
                     </Text>
                 </Pressable>
-                <Pressable style={styles.btnTouchable}>
-                    <Text style={styles.btnTouchableText}>
+                <Pressable style={[styles.btnPressable, {flex:2}]}>
+                    <Text style={styles.btnTouchableText}
+                    onPress={() => setcounter(counter-1)}>
                         Decrementar
                     </Text>
                 </Pressable>
-                <Pressable style={styles.btnTouchable}>
-                    <Text style={styles.btnTouchableText}>
+                <Pressable style={[styles.btnPressable, {flex:3}]}>
+                    <Text style={styles.btnTouchableText}
+                    onPress={() => setcounter(0)}>
                         Reiniciar
                     </Text>
                 </Pressable>
@@ -87,6 +101,19 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     btnTouchableText: {
-        fontSize: 30
+        fontSize: 15
+    },
+    rowContainer:{
+      flexDirection:"row"
+    },
+    btnPressable:{
+      backgroundColor: "lightblue",
+      padding: 20,
+      borderRadius:30,
+      justifyContent: "center",
+      alignItems: "center"
+    },
+    rowContainerReversible:{
+      flexDirection:"row-reverse"
     }
 })
